@@ -24,10 +24,48 @@ const dictionary: Dictionary = {
     problemLabel: "Problem",
     decisionsLabel: "Technical decisions",
     resultLabel: "Result",
+    tryItLabel: "What to try",
+    demoLabel: "Try the demo",
+    codeLabel: "View code",
+    moreTitle: "Other projects",
   },
   projects: [
     {
       index: "01",
+      name: "Sobremesa — restaurant management system",
+      problem:
+        "Paper tickets, reservations over WhatsApp and a cash count that never adds up, while guests wait for someone to take their order.",
+      decisions:
+        "Next.js 16 and PostgreSQL with row level security isolating each restaurant; a live order board and kitchen screen over LISTEN/NOTIFY; card payments through Stripe Connect into each business's own account; over 1,600 automated tests.",
+      result:
+        "Website, QR ordering at the table, reservations, kitchen, cash register and reports in one system, ready to take on each client's brand.",
+      stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Stripe", "Docker"],
+      featured: {
+        slug: "marea",
+        tagline: "Shown through Marea, a fictional seafood restaurant in Mazatlán.",
+        imageAlt: "Marea's website: a palapa facing the sea beside the headline “This morning's catch, on your table by noon”.",
+        tryIt: "Scan a table's QR code, order from your phone and watch the order reach the kitchen screen.",
+      },
+    },
+    {
+      index: "02",
+      name: "Repair shop management system",
+      problem:
+        "Customers call to ask whether their device is ready, dispute a price nobody wrote down, and there is no record of the state it arrived in.",
+      decisions:
+        "Next.js 16 and PostgreSQL; quotes the customer approves from a private link; a state machine enforced after a row lock; a history the database refuses to rewrite; email notices that are never lost or sent twice.",
+      result:
+        "Intake with a folio and a QR code, live tracking, customer-approved quotes, payments and warranties in one panel.",
+      stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Docker"],
+      featured: {
+        slug: "voltio",
+        tagline: "Shown through Voltio, a fictional repair shop in Guadalajara.",
+        imageAlt: "Voltio's website: a phone shows an approved quote beside the headline “Your device in good hands”.",
+        tryIt: "Open an order as the customer, approve the quote from your phone and watch the shop's panel change.",
+      },
+    },
+    {
+      index: "03",
       name: "Point-of-Sale System (Telecom)",
       problem: "Manage inventory, customers, and sales without relying on manual processes.",
       decisions:
@@ -36,7 +74,7 @@ const dictionary: Dictionary = {
       stack: ["PHP", "MySQL", "Bootstrap"],
     },
     {
-      index: "02",
+      index: "04",
       name: "Real Estate Management System",
       problem: "Centralize clients, properties, appointments, and sales without manual scheduling.",
       decisions:
@@ -45,7 +83,7 @@ const dictionary: Dictionary = {
       stack: ["PHP", "HTML", "MySQL"],
     },
     {
-      index: "03",
+      index: "05",
       name: "Custom Curtain Quoting Tool",
       problem: "Manual quotes that were slow and error-prone, with many variables per product.",
       decisions:

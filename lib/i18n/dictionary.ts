@@ -8,6 +8,17 @@ export type ProjectEntry = {
   decisions: string;
   result: string;
   stack: string[];
+  /**
+   * A full system with a screenshot and links (lib/projects.ts). Shown first,
+   * as a large card; the rest stay in the compact grid.
+   */
+  featured?: {
+    slug: string;
+    tagline: string;
+    imageAlt: string;
+    /** One line: what to do in the demo to see the point of it. */
+    tryIt: string;
+  };
 };
 
 export type ExperienceEntry = {
@@ -51,6 +62,10 @@ export type Dictionary = {
     problemLabel: string;
     decisionsLabel: string;
     resultLabel: string;
+    tryItLabel: string;
+    demoLabel: string;
+    codeLabel: string;
+    moreTitle: string;
   };
   projects: ProjectEntry[];
   aboutSection: {

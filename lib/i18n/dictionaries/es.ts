@@ -24,10 +24,48 @@ const dictionary: Dictionary = {
     problemLabel: "Problema",
     decisionsLabel: "Decisiones técnicas",
     resultLabel: "Resultado",
+    tryItLabel: "Qué probar",
+    demoLabel: "Probar la demo",
+    codeLabel: "Ver código",
+    moreTitle: "Otros proyectos",
   },
   projects: [
     {
       index: "01",
+      name: "Sobremesa — sistema para restaurantes",
+      problem:
+        "Comandas en papel, reservaciones por WhatsApp y un corte de caja que no cuadra, mientras el cliente espera a que le tomen la orden.",
+      decisions:
+        "Next.js 16 y PostgreSQL con seguridad a nivel de fila para aislar a cada restaurante; tablero y pantalla de cocina en tiempo real con LISTEN/NOTIFY; cobros con Stripe Connect a la cuenta de cada negocio; más de 1,600 pruebas automatizadas.",
+      result:
+        "Sitio web, pedidos por QR desde la mesa, reservaciones, cocina, caja y reportes en un solo sistema, listo para tomar la marca de cada cliente.",
+      stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Stripe", "Docker"],
+      featured: {
+        slug: "marea",
+        tagline: "Se muestra con Marea, una marisquería ficticia de Mazatlán.",
+        imageAlt: "Portada del sitio de Marea: una palapa frente al mar y el título «La pesca de esta mañana, en tu mesa al mediodía».",
+        tryIt: "Escanea el QR de una mesa, pide desde el celular y mira el pedido llegar a la pantalla de cocina.",
+      },
+    },
+    {
+      index: "02",
+      name: "Sistema para talleres de reparación",
+      problem:
+        "El cliente llama para saber si su equipo ya está, discute un precio que nadie dejó por escrito y no hay registro de cómo llegó el equipo.",
+      decisions:
+        "Next.js 16 y PostgreSQL; cotizaciones que el cliente aprueba desde un enlace privado; máquina de estados con bloqueo de fila; un historial que la base de datos impide reescribir; avisos por correo que no se pierden ni se duplican.",
+      result:
+        "Recepción con folio y QR, seguimiento en línea, cotizaciones aprobadas por el cliente, cobros y garantías en un solo panel.",
+      stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Docker"],
+      featured: {
+        slug: "voltio",
+        tagline: "Se muestra con Voltio, un taller ficticio de Guadalajara.",
+        imageAlt: "Portada del sitio de Voltio: un celular muestra una cotización aprobada junto al título «Tu equipo en buenas manos».",
+        tryIt: "Abre una orden como cliente, aprueba la cotización desde tu celular y mira el cambio en el panel del taller.",
+      },
+    },
+    {
+      index: "03",
       name: "Sistema de Punto de Venta (Telefonía)",
       problem: "Gestionar inventario, clientes y ventas sin depender de procesos manuales.",
       decisions:
@@ -36,7 +74,7 @@ const dictionary: Dictionary = {
       stack: ["PHP", "MySQL", "Bootstrap"],
     },
     {
-      index: "02",
+      index: "04",
       name: "Sistema de Gestión Inmobiliaria",
       problem: "Centralizar clientes, propiedades, citas y ventas, sin coordinación manual de agenda.",
       decisions:
@@ -45,7 +83,7 @@ const dictionary: Dictionary = {
       stack: ["PHP", "HTML", "MySQL"],
     },
     {
-      index: "03",
+      index: "05",
       name: "Cotizador de Cortinas a Medida",
       problem: "Cotizaciones manuales, lentas y propensas a error, con muchas variables por producto.",
       decisions:
