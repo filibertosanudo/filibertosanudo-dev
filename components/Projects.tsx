@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary, ProjectEntry } from "@/lib/i18n/dictionary";
 import { projectLinks } from "@/lib/projects";
 
@@ -33,7 +35,7 @@ function Stack({ items }: { items: string[] }) {
 }
 
 /** A full system: screenshot, the case, what to try, and its links. */
-function FeaturedCard({ project, labels }: { project: ProjectEntry; labels: Labels }) {
+function FeaturedCard({ project, labels, lang, readCase }: { project: ProjectEntry; labels: Labels; lang: Locale; readCase: string }) {
   const featured = project.featured!;
   const links = projectLinks[featured.slug];
 
@@ -78,6 +80,12 @@ function FeaturedCard({ project, labels }: { project: ProjectEntry; labels: Labe
 
         {links && (
           <div className="mt-5 flex flex-wrap gap-3">
+            <Link
+              href={`/${lang}/proyectos/${featured.slug}`}
+              className="inline-flex items-center justify-center rounded-[10px] bg-ink px-5 py-3 text-[15px] font-semibold text-white transition hover:-translate-y-px hover:bg-navy"
+            >
+              {readCase}
+            </Link>
             {/* Only once the public demo is online: lib/projects.ts. */}
             {links.demoUrl && (
               <a
@@ -125,8 +133,8 @@ function CompactCard({ project, labels }: { project: ProjectEntry; labels: Label
   );
 }
 
-export default function Projects({ dict }: { dict: Dictionary }) {
-  const { projectsSection, projects } = dict;
+export default function Projects({ dict, lang }: { dict: Dictionary; lang: Locale }) {
+  const { projectsSection, projects, caseStudyLabels } = dict;
   const featured = projects.filter((p) => p.featured);
   const rest = projects.filter((p) => !p.featured);
 
@@ -146,7 +154,7 @@ export default function Projects({ dict }: { dict: Dictionary }) {
         {featured.length > 0 && (
           <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch gap-6">
             {featured.map((p) => (
-              <FeaturedCard key={p.index} project={p} labels={projectsSection} />
+              <FeaturedCard key={p.index} project={p} labels={projectsSection} lang={lang} readCase={caseStudyLabels.readCase} />
             ))}
           </div>
         )}

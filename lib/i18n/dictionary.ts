@@ -21,6 +21,31 @@ export type ProjectEntry = {
   };
 };
 
+/** One screen of a case study: what it shows and why it matters. */
+export type CaseSection = {
+  heading: string;
+  body: string[];
+  image?: {
+    /** Under public/projects/<slug>/. */
+    file: string;
+    alt: string;
+    caption: string;
+    /** A phone screenshot: drawn narrow, in a device frame. */
+    phone?: boolean;
+  };
+};
+
+export type CaseStudy = {
+  kicker: string;
+  title: string;
+  summary: string;
+  facts: { label: string; value: string }[];
+  sections: CaseSection[];
+  /** "What is underneath": the engineering decisions, one line each. */
+  engineeringTitle: string;
+  engineering: string[];
+};
+
 export type ExperienceEntry = {
   period: string;
   role: string;
@@ -68,6 +93,12 @@ export type Dictionary = {
     moreTitle: string;
   };
   projects: ProjectEntry[];
+  caseStudyLabels: {
+    readCase: string;
+    back: string;
+    metaSuffix: string;
+  };
+  caseStudies: Record<string, CaseStudy>;
   aboutSection: {
     eyebrow: string;
     paragraphs: [string, string];

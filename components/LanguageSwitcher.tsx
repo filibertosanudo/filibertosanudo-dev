@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { locales, localeNames, type Locale } from "@/lib/i18n/config";
 
-export default function LanguageSwitcher({ lang }: { lang: Locale }) {
+/** `path` keeps the visitor on the same page in the other language (e.g. "/proyectos/marea"). */
+export default function LanguageSwitcher({ lang, path = "" }: { lang: Locale; path?: string }) {
   return (
     <div
       role="group"
@@ -13,7 +14,7 @@ export default function LanguageSwitcher({ lang }: { lang: Locale }) {
       {locales.map((locale) => (
         <Link
           key={locale}
-          href={`/${locale}`}
+          href={`/${locale}${path}`}
           onClick={() => {
             document.cookie = `locale=${locale}; path=/; max-age=31536000; samesite=lax`;
           }}

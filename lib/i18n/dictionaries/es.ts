@@ -92,6 +92,132 @@ const dictionary: Dictionary = {
       stack: ["Laravel", "MySQL", "JavaScript", "Bootstrap"],
     },
   ],
+  caseStudyLabels: {
+    readCase: "Ver caso completo",
+    back: "Volver a proyectos",
+    metaSuffix: "Caso de estudio",
+  },
+  caseStudies: {
+    marea: {
+      kicker: "Caso de estudio · Restaurantes",
+      title: "Sobremesa, un sistema completo para restaurantes",
+      summary:
+        "El sitio web, los pedidos desde la mesa, la cocina, la caja y los reportes de un restaurante en un solo sistema. Se muestra con Marea, una marisquería ficticia de Mazatlán; cada cliente real recibe su propio sitio y su marca sobre el mismo sistema.",
+      facts: [
+        { label: "Para", value: "Restaurantes y cadenas pequeñas" },
+        { label: "Mi rol", value: "Diseño, desarrollo full-stack y despliegue" },
+        { label: "Pruebas", value: "Más de 1,600, con integración y E2E" },
+        { label: "Stack", value: "Next.js 16, PostgreSQL, Prisma, Stripe Connect, Docker" },
+      ],
+      sections: [
+        {
+          heading: "El problema",
+          body: [
+            "En un restaurante pequeño la comanda va en papel, las reservaciones llegan por WhatsApp y el corte de caja no cuadra. El cliente espera a que alguien le tome la orden y el dueño no sabe qué vendió hasta que cuenta el dinero.",
+          ],
+        },
+        {
+          heading: "Un sitio que vende",
+          body: [
+            "El sitio del restaurante sale de sus propios datos: menú, promociones, testimonios y horario se editan desde el panel. Reservar una mesa toma un minuto y la base de datos impide dos reservaciones en la misma mesa y hora.",
+          ],
+          image: { file: "sitio.jpg", alt: "Portada del sitio de Marea, con una palapa frente al mar.", caption: "La portada del sitio, en español y en inglés." },
+        },
+        {
+          heading: "Pedir desde la mesa",
+          body: [
+            "El cliente escanea el QR de su mesa, ve el menú con fotos, elige y paga con tarjeta o en caja. Sigue su pedido en vivo sin crear cuenta.",
+          ],
+          image: { file: "menu-qr.jpg", alt: "Menú en el celular, con fotos de aguachile y coctel de camarón.", caption: "El menú del QR, en el celular del cliente.", phone: true },
+        },
+        {
+          heading: "Tablero y cocina en tiempo real",
+          body: [
+            "Cada pedido aparece en el tablero del piso y en la pantalla de cocina en menos de un segundo, sin recargar. La cocina lee cada pedido a distancia y lo avanza con un toque; una impresora térmica saca la comanda.",
+          ],
+          image: { file: "tablero.jpg", alt: "Tablero de pedidos con columnas Pendiente, En preparación, Listo y Entregado.", caption: "El tablero de pedidos del gerente." },
+        },
+        {
+          heading: "La pantalla de cocina",
+          body: [
+            "Sin precios ni menús: solo lo que hay que preparar, en letra grande, con el tiempo que lleva cada pedido y las notas de alergias resaltadas.",
+          ],
+          image: { file: "cocina.jpg", alt: "Pantalla de cocina con tres pedidos en columnas.", caption: "La pantalla de cocina, pensada para leerse a distancia." },
+        },
+        {
+          heading: "Caja y reportes",
+          body: [
+            "Turnos de caja con diferencia al cierre, reembolsos atados al turno y reportes de venta comparados contra el periodo anterior, exportables a Excel.",
+          ],
+          image: { file: "reportes.jpg", alt: "Reporte de ventas de los últimos 7 días con gráfica por día y platillos más vendidos.", caption: "Ventas de la semana, en pesos." },
+        },
+      ],
+      engineeringTitle: "Lo que hay debajo",
+      engineering: [
+        "Cada restaurante aislado por la propia base de datos (row level security): una consulta que olvida filtrar no ve nada, en vez de ver todo.",
+        "Pagos con Stripe Connect a la cuenta de cada negocio; solo el webhook firmado marca un pago como cobrado, así que nunca se aplica dos veces.",
+        "Tiempo real con LISTEN/NOTIFY de Postgres y server-sent events: cinco pantallas en reposo pasaron de 605 consultas por minuto a 2.",
+        "Una prueba recorre todas las acciones del servidor y falla si alguna olvida revisar permisos.",
+        "Respaldos cifrados cada seis horas y una restauración que se prueba sola cada mes en CI.",
+      ],
+    },
+    voltio: {
+      kicker: "Caso de estudio · Talleres de reparación",
+      title: "Un sistema para talleres de reparación",
+      summary:
+        "Recepción con folio, seguimiento en línea, cotizaciones que el cliente aprueba desde su celular, cobros y garantías. Se muestra con Voltio, un taller ficticio de Guadalajara.",
+      facts: [
+        { label: "Para", value: "Talleres de celulares, laptops y consolas" },
+        { label: "Mi rol", value: "Diseño y desarrollo full-stack" },
+        { label: "Pruebas", value: "Integración contra Postgres real, incluidas carreras" },
+        { label: "Stack", value: "Next.js 16, PostgreSQL, Prisma, Docker" },
+      ],
+      sections: [
+        {
+          heading: "El problema",
+          body: [
+            "Tres cosas fallan cada semana en un taller pequeño: el cliente llama para saber si su equipo ya está, discute un precio que nadie dejó por escrito y nadie anotó cómo llegó el equipo.",
+          ],
+        },
+        {
+          heading: "Recepción en un minuto",
+          body: [
+            "La recepción empieza por el teléfono: si ya es cliente, se llenan sus datos y sus equipos anteriores. Se anota cómo llega el equipo, con fotos, y sale un recibo con folio y un QR para que el cliente lo siga.",
+          ],
+          image: { file: "recepcion.jpg", alt: "Formulario de recepción con cliente, equipo y estado físico.", caption: "Recibir un equipo." },
+        },
+        {
+          heading: "El cliente aprueba desde su celular",
+          body: [
+            "El cliente abre su enlace privado, ve el diagnóstico, las fotos y la cotización desglosada, y la aprueba o rechaza ahí mismo. Nada se repara ni se cobra sin esa aprobación, y queda registrada con fecha y hora.",
+          ],
+          image: { file: "seguimiento.jpg", alt: "Página de seguimiento en el celular con la cotización y el botón para aprobar.", caption: "El seguimiento que abre el cliente.", phone: true },
+        },
+        {
+          heading: "El taller de un vistazo",
+          body: [
+            "El dueño ve lo que está abierto, lo que espera respuesta del cliente, lo atrasado y lo cobrado en el mes.",
+          ],
+          image: { file: "panel.jpg", alt: "Resumen del panel con órdenes abiertas, cobrado del mes y órdenes atrasadas.", caption: "El resumen del dueño." },
+        },
+        {
+          heading: "Cada orden, completa",
+          body: [
+            "Recepción, diagnóstico, cotización, cobros, fotos e historial en una sola pantalla, con un botón para avisar al cliente por WhatsApp.",
+          ],
+          image: { file: "orden.jpg", alt: "Detalle de una orden esperando aprobación, con recepción, diagnóstico y cobro.", caption: "Una orden esperando la respuesta del cliente." },
+        },
+      ],
+      engineeringTitle: "Lo que hay debajo",
+      engineering: [
+        "Aprobar es decir sí a un precio específico: la respuesta lleva el id de la cotización que el cliente veía, y un doble toque cuenta una sola vez.",
+        "Una máquina de estados validada después de bloquear la fila: dos personas con botones contradictorios obtienen un movimiento y un rechazo.",
+        "Un historial que la base de datos impide reescribir, incluso para el dueño de la tabla.",
+        "Avisos por correo que no se pierden ni se duplican (outbox transaccional).",
+        "Una prueba recorre todas las acciones del servidor y falla si alguna no revisa primero quién la llama.",
+      ],
+    },
+  },
   aboutSection: {
     eyebrow: "02 · Sobre mí",
     paragraphs: [
